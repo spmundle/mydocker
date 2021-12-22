@@ -1,9 +1,7 @@
 FROM maven:3.6.3-jdk-11-slim
-WORKDIR /app
+RUN mkdir -p app
+WORKDIR app
 COPY pom.xml .
-RUN mvn dependency:go-offline
 COPY src src
 RUN mvn package
-ARG JAR_FILE=/app/target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","target/app.jar"]
+ENTRYPOINT ["java","-jar","target/mydockerdemo-0.0.1-SNAPSHOT.jar"]
