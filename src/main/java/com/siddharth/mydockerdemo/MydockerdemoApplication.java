@@ -11,7 +11,7 @@ public class MydockerdemoApplication {
 
 	@RequestMapping("/")
 	public String home() {
-		return "Ye lo naya msg daal diya";
+		return "Ye mera personal docker container hai - Siddharth";
 	}
 
 	public static void main(String[] args) {
