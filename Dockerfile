@@ -4,4 +4,6 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src src
 RUN mvn package
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","target/app.jar"]
